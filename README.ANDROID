@@ -1,0 +1,14 @@
+~/Library/Android/sdk/ndk-bundle/build/ndk-build
+
+/Users/doug/Library/Android/sdk/platform-tools/adb push libs/arm64-v8a/darknet /data/local/tmp
+/Users/doug/Library/Android/sdk/platform-tools/adb push cfg/yolov3.cfg /data/local/tmp
+/Users/doug/Library/Android/sdk/platform-tools/adb push yolov3.weights /data/local/tmp
+/Users/doug/Library/Android/sdk/platform-tools/adb push data/dog.jpg /data/local/tmp
+/Users/doug/Library/Android/sdk/platform-tools/adb push data/labels/* /data/local/tmp/data/labels/
+/Users/doug/Library/Android/sdk/platform-tools/adb push data/coco.names /data/local/tmp/data/
+/Users/doug/Library/Android/sdk/platform-tools/adb push cfg/coco.data /data/local/tmp/cfg/
+
+on adb shell in folder /data/local/tmp run:
+(use /Users/doug/Library/Android/sdk/platform-tools/adb shell to fire up shell)
+
+./darknet detect yolov3.cfg yolov3.weights dog.jpg
